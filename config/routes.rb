@@ -1,9 +1,21 @@
 AuthexampleWebapp::Application.routes.draw do
+  get "static_pages/index"
+
+  get "static_pages/help"
+
+  get "static_pages/admin"
+
+  get "static_pages/error"
+
+  get "static_pages/initdb"
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   devise_for :users
+
+  root :to => 'static_pages#index'   
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -54,7 +66,6 @@ AuthexampleWebapp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
